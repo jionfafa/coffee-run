@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>커피런 100m</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="appbar">
+    <div class="brand">
+      <div class="logo">☕</div>
+      <div>
+        <div class="title">커피런 100m</div>
+        <div class="subtitle">꼴등이 커피 쏜다</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="inputRow">
+        <input id="nameInput" placeholder="이름 입력 후 Enter (최대 10명)" />
+        <button id="addBtn" class="btn">추가</button>
+      </div>
+
+      <div id="chips" class="chips"></div>
+
+      <div class="btnRow">
+        <button id="sampleBtn" class="btn ghost">샘플</button>
+        <button id="shuffleBtn" class="btn ghost">셔플</button>
+        <div class="spacer"></div>
+        <button id="startBtn" class="btn primary">START</button>
+        <button id="resetBtn" class="btn">RESET</button>
+      </div>
+
+      <div class="hud">
+        <div class="hudLeft">
+          <div id="status" class="status">대기중</div>
+          <div id="leader" class="leader">현재 1등: -</div>
+        </div>
+        <div class="hudRight">
+          <div class="meterLabel"><span>0m</span><span>100m</span></div>
+          <div class="meter">
+            <div id="meterFill" class="meterFill" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <canvas id="game" width="390" height="720"></canvas>
+    <div class="hint">팁: 회의실 TV/모니터에 띄워놓고 START 누르면 끝 </div>
+  </main>
+
+  <!-- 결과 모달 -->
+  <div id="modal" class="modal hidden">
+    <div class="modalCard">
+      <div class="modalHeader">
+        <div class="modalTitle">결과</div>
+        <button id="closeModalBtn" class="btn ghost">닫기</button>
+      </div>
+      <div id="resultHeadline" class="resultHeadline"></div>
+      <div id="resultList" class="resultList"></div>
+
+      <div class="modalFooter">
+        <button id="rerunBtn" class="btn primary">한 판 더</button>
+        <button id="copyBtn" class="btn">결과 복사</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
