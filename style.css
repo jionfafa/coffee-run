@@ -16,6 +16,7 @@ body{
               var(--bg);
   color:var(--text);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  -webkit-text-size-adjust: 100%; /* ✅ iOS 키보드 포커스 시 과도한 확대 완화 */
 }
 
 .appbar{
@@ -47,17 +48,30 @@ body{
 
 .inputRow{
   display:flex; gap:8px; align-items:center;
+  flex-wrap: wrap; /* ✅ 모바일에서 버튼이 화면 밖으로 밀리면 다음 줄로 */
 }
 input{
   flex:1;
+  min-width: 0;          /* ✅ flex overflow 방지 */
   padding:12px 12px;
   border-radius:14px;
   border:1px solid var(--line);
   outline:none;
   background: rgba(255,255,255,.06);
   color:var(--text);
+  font-size: 16px;       /* ✅ iOS 자동 확대(줌) 방지 핵심 */
+  line-height: 1.2;
 }
 input::placeholder{ color: rgba(229,231,235,.55); }
+
+#addBtn{
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 360px){
+  #addBtn{ width: 100%; }
+}
 
 .btnRow{
   display:flex; gap:8px; align-items:center;
